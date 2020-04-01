@@ -19,12 +19,13 @@ Now we compile it with the `-g` flag so that GDB has debugging information to wo
 
 ```bash
 gcc -g simple.c -o simple
-gdb simple
+gdb ./simple
 ```
 
+**NOTE**: here the `./` is important! GDB won't work without it.
 We have the terminal output:
 
-![](2020-04-01-05-36-30.png)
+![](2020-04-01-06-46-53.png)
 
 We can carry out simple arithmetic in C and print out the evaluation:
 
@@ -36,5 +37,12 @@ Note that even arithmetic can be tricky in C and GDB understands C arithmetic:
 
 Now let's set a breakpoint in the `main` function and start the program:
 
-![](2020-04-01-05-42-18.png)
+![](2020-04-01-06-11-18.png)
 
+Now the program is on line 2 of the C program:
+
+```c
+int i = 1337;
+```
+
+Before `i` gets initialized, we can peek its value for now using GDB:
